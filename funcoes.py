@@ -14,6 +14,7 @@ def rolar_dados(n):
 
 def guardar_dado(dados_rolados, dados_no_estoque, dado_para_guardar):
 
+
     dado_que_eu_quero = dados_rolados[dado_para_guardar]
 
     dados_no_estoque.append(dado_que_eu_quero)
@@ -27,3 +28,15 @@ def guardar_dado(dados_rolados, dados_no_estoque, dado_para_guardar):
             dados_rolados_novo.append(dados_rolados[i])
 
     return [dados_rolados_novo, dados_no_estoque]
+
+def remover_dado(dados_rolados,dados_no_estoque,dado_para_remover):
+    dados_rolados_novo = dados_rolados
+    dados_rolados_novo.append(dados_no_estoque[dado_para_remover])
+    dados_estoque_novo = []
+
+    for dado in range(len(dados_no_estoque)):
+        if dado != dado_para_remover:
+            dados_estoque_novo.append(dados_no_estoque[dado])
+
+    
+    return [dados_rolados_novo, dados_estoque_novo]
