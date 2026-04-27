@@ -40,3 +40,19 @@ def remover_dado(dados_rolados,dados_no_estoque,dado_para_remover):
 
     
     return [dados_rolados_novo, dados_estoque_novo]
+
+def  calcula_pontos_regra_simples(numeros):
+
+    dic_pontos = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0
+    }
+
+    for n in numeros:
+        dic_pontos[n] += n
+    
+    return dic_pontos
