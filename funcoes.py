@@ -64,3 +64,11 @@ def calcula_pontos_soma(dados):
         soma += dado
 
     return soma
+
+def calcula_pontos_sequencia_baixa(dados):
+
+    if 3 in dados and 4 in dados:
+        if (2 in dados and 1 in dados) or (2 in dados and 5 in dados) or (5 in dados and 6 in dados):
+            return 15
+    
+    return 0
