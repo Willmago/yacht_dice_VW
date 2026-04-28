@@ -152,3 +152,37 @@ def calcula_pontos_quina(dados):
         return 0
     else:
         return (50)
+
+def calcula_pontos_regra_avancada(dados):
+
+    sem_comb = calcula_pontos_soma(dados)
+    seq_baixa = calcula_pontos_sequencia_baixa(dados)
+    seq_alta = calcula_pontos_sequencia_alta(dados)
+    full_house = calcula_pontos_full_house(dados)
+    quadra = calcula_pontos_quadra(dados)
+    quina = calcula_pontos_quina(dados)
+
+    dic = {
+        'sem_combinacao': sem_comb,
+        'sequencia_baixa': seq_baixa,
+        'sequencia_alta': seq_alta,
+        'full_house': full_house,
+        'quadra': quadra,
+        'cinco_iguais': quina
+    }
+
+    return dic
+
+def faz_jogada(dados, categoria, cartela):
+
+    resultado = cartela
+
+    if categoria in ['1', '2', '3', '4', '5', '6']:
+        categoria = int(categoria)
+        dic_resultado = calcula_pontos_regra_simples(dados)
+        resultado['regra_simples'][categoria] = dic_resultado[categoria]
+    else:
+        dic_resultado = calcula_pontos_regra_avancada(dados)
+        resultado['regra_avancada'][categoria] = dic_resultado[categoria]
+
+    return resultado
