@@ -21,7 +21,6 @@ def guardar_dado(dados_rolados, dados_no_estoque, dado_para_guardar):
 
     dados_rolados_novo = []
 
-    retirado = False
     for i in range(len(dados_rolados)):
 
         if i != dado_para_guardar:
@@ -56,3 +55,12 @@ def  calcula_pontos_regra_simples(numeros):
         dic_pontos[n] += n
     
     return dic_pontos
+
+def calcula_pontos_soma(dados):
+    
+    soma = 0
+
+    for dado in dados:
+        soma += dado
+
+    return soma
