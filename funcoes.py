@@ -106,5 +106,28 @@ def calcula_pontos_full_house(dados):
 
         return calcula_pontos_soma(dados)
     else:
-        
+
         return 0
+
+def calcula_pontos_quadra(dados):
+
+    dic_quantias = {}
+
+    for dado in dados:
+
+        if dado not in dic_quantias:
+            dic_quantias[dado] = 1
+        else:
+            dic_quantias[dado] += 1
+
+    resultado = 0
+
+    for dado, quantia in dic_quantias.items():
+        if quantia >= 4:
+            resultado = 1
+
+    if resultado == 0:
+        return 0
+    else:
+        return (calcula_pontos_soma(dados))
+    
