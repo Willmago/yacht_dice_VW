@@ -80,3 +80,31 @@ def calcula_pontos_sequencia_alta(dados):
             return 30
     
     return 0
+
+def calcula_pontos_full_house(dados):
+
+    dic_quantias = {}
+
+    for dado in dados:
+
+        if dado not in dic_quantias:
+            dic_quantias[dado] = 1
+        else:
+            dic_quantias[dado] += 1
+    
+    tem_3_iguais = False
+    tem_2_iguais = False
+
+    for dado, quantia in dic_quantias.items():
+
+        if quantia == 3:
+            tem_3_iguais = True
+        elif quantia == 2:
+            tem_2_iguais = True
+    
+    if tem_2_iguais and tem_3_iguais:
+
+        return calcula_pontos_soma(dados)
+    else:
+        
+        return 0
